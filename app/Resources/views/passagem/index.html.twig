@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Passagem list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Idpassagem</th>
+                <th>Titulo</th>
+                <th>Descricao</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for passagem in passagems %}
+            <tr>
+                <td><a href="{{ path('admin_passagem_show', { 'id': passagem.idpassagem }) }}">{{ passagem.idpassagem }}</a></td>
+                <td>{{ passagem.titulo }}</td>
+                <td>{{ passagem.descricao }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_passagem_show', { 'id': passagem.idpassagem }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_passagem_edit', { 'id': passagem.idpassagem }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_passagem_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,45 @@
+app_passagem:
+    resource: "@AppBundle/Controller/PassagemController.php"
+    type:     annotation
+
+leilao:
+    resource: "@LeilaoBundle/Resources/config/routing.yml"
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+AppBundleHome:
+    path:      /
+    defaults:  { _controller: AppBundle:Default:index }
+
+AppBundleComoFunciona:
+    path:      /como_funciona
+    defaults:  { _controller: AppBundle:Default:comoFunciona }
+
+AppBundleCupons:
+    path:      /cupons
+    defaults:  { _controller: AppBundle:Default:cupons }
+
+AppBundleSocial:
+    path:      /social
+    defaults:  { _controller: AppBundle:Default:social }
+
+AppBundleConheca:
+    path:      /conheca
+    defaults:  { _controller: AppBundle:Default:conheca }
+
+AppBundlePoliticaPrivacidade:
+    path:      /politica_privacidade
+    defaults:  { _controller: AppBundle:Default:politicaPrivacidade }
+
+AppBundleDuvidas:
+    path:      /duvidas
+    defaults:  { _controller: AppBundle:Default:duvidas }
+
+AppBundleContato:
+    path:      /contato
+    defaults:  { _controller: AppBundle:Default:contato }

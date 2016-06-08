@@ -1,0 +1,3 @@
+LeilaoBundle:
+    path:      /leilao
+    defaults:  { _controller: LeilaoBundle:Leilao:index }
