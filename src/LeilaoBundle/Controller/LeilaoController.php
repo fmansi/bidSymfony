@@ -8,8 +8,14 @@ use Symfony\Component\HttpFoundation\Request;
 
 class LeilaoController extends Controller
 {
-    public function indexAction(Request $request)
+    public function indexAction($situation)
     {
-        return $this->render('LeilaoBundle:leilao:index.html.twig');
+        $serviceLeilao = $this->get("leilao.Service");
+
+        $todosLeiloes = $serviceLeilao->getList($situation);
+
+        return $this->render('LeilaoBundle:leilao:index.html.twig', array(
+            "listaLeilao" => $todosLeiloes
+        ));
     }
 }

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>HistoricoCredito list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Controlecredito</th>
+                <th>Data</th>
+                <th>Descricao</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for historicoCredito in historicoCreditos %}
+            <tr>
+                <td><a href="{{ path('admin_historico_credito_show', { 'id': historicoCredito.id }) }}">{{ historicoCredito.id }}</a></td>
+                <td>{{ historicoCredito.controleCredito }}</td>
+                <td>{% if historicoCredito.data %}{{ historicoCredito.data|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ historicoCredito.descricao }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_historico_credito_show', { 'id': historicoCredito.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_historico_credito_edit', { 'id': historicoCredito.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_historico_credito_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

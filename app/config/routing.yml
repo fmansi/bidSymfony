@@ -1,6 +1,47 @@
+app_leilao:
+    resource: "@AppBundle/Controller/LeilaoController.php"
+    type:     annotation
+
+app_historico_credito:
+    resource: "@AppBundle/Controller/HistoricoCreditoController.php"
+    type:     annotation
+
+app_controle_vendas:
+    resource: "@AppBundle/Controller/ControleVendasController.php"
+    type:     annotation
+
+app_controle_estoque:
+    resource: "@AppBundle/Controller/ControleEstoqueController.php"
+    type:     annotation
+
+app_agencia:
+    resource: "@AppBundle/Controller/AgenciaController.php"
+    type:     annotation
+
+app_promocoes:
+    resource: "@AppBundle/Controller/PromocoesController.php"
+    type:     annotation
+
+app_estado:
+    resource: "@AppBundle/Controller/EstadoController.php"
+    type:     annotation
+
+app_cidade:
+    resource: "@AppBundle/Controller/CidadeController.php"
+    type:     annotation
+
 app_passagem:
     resource: "@AppBundle/Controller/PassagemController.php"
     type:     annotation
+
+app_passagem:
+    resource: "@AppBundle/Controller/PassagemController.php"
+    type:     annotation
+
+admin:
+    resource: "@AdminBundle/Controller/"
+    type:     annotation
+    prefix:   /
 
 leilao:
     resource: "@LeilaoBundle/Resources/config/routing.yml"

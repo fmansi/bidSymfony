@@ -33,7 +33,7 @@ class Usuario Extends BaseUser
     private $dadosCadastro;
 
     /**
-     * @return \UsuarioDadosCadastro
+     * @return UsuarioDadosCadastro
      */
     public function getDadosCadastro()
     {
@@ -43,7 +43,7 @@ class Usuario Extends BaseUser
     /**
      * @param \UsuarioDadosCadastro $dadosCadastro
      */
-    public function setDadosCadastro($dadosCadastro)
+    public function setDadosCadastro(UsuarioDadosCadastro $dadosCadastro)
     {
         $this->dadosCadastro = $dadosCadastro;
     }

@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_admin.html.twig' %}
 
 {% block body %}
     <h1>Passagem list</h1>
@@ -6,7 +6,7 @@
     <table>
         <thead>
             <tr>
-                <th>Idpassagem</th>
+                <th>Id</th>
                 <th>Titulo</th>
                 <th>Descricao</th>
                 <th>Actions</th>
@@ -15,16 +15,16 @@
         <tbody>
         {% for passagem in passagems %}
             <tr>
-                <td><a href="{{ path('admin_passagem_show', { 'id': passagem.idpassagem }) }}">{{ passagem.idpassagem }}</a></td>
+                <td><a href="{{ path('admin_passagem_show', { 'id': passagem.id }) }}">{{ passagem.id }}</a></td>
                 <td>{{ passagem.titulo }}</td>
                 <td>{{ passagem.descricao }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('admin_passagem_show', { 'id': passagem.idpassagem }) }}">show</a>
+                            <a href="{{ path('admin_passagem_show', { 'id': passagem.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('admin_passagem_edit', { 'id': passagem.idpassagem }) }}">edit</a>
+                            <a href="{{ path('admin_passagem_edit', { 'id': passagem.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>

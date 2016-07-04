@@ -19,7 +19,7 @@ class Promocoes
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idpromocoes;
+    private $id;
 
     /**
      * @var string
@@ -52,6 +52,84 @@ class Promocoes
      */
     private $passagem;
 
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
+    /**
+     * @param int $idpromocoes
+     */
+    public function setId($idpromocoes)
+    {
+        $this->id = $idpromocoes;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitulo()
+    {
+        return $this->titulo;
+    }
+
+    /**
+     * @param string $titulo
+     */
+    public function setTitulo($titulo)
+    {
+        $this->titulo = $titulo;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDatainicio()
+    {
+        return $this->datainicio;
+    }
+
+    /**
+     * @param \DateTime $datainicio
+     */
+    public function setDatainicio($datainicio)
+    {
+        $this->datainicio = $datainicio;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDatafinal()
+    {
+        return $this->datafinal;
+    }
+
+    /**
+     * @param \DateTime $datafinal
+     */
+    public function setDatafinal($datafinal)
+    {
+        $this->datafinal = $datafinal;
+    }
+
+    /**
+     * @return \Passagem
+     */
+    public function getPassagem()
+    {
+        return $this->passagem;
+    }
+
+    /**
+     * @param \Passagem $passagem
+     */
+    public function setPassagem($passagem)
+    {
+        $this->passagem = $passagem;
+    }
 }
 

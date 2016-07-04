@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Promocoes</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ promoco.id }}</td>
+            </tr>
+            <tr>
+                <th>Titulo</th>
+                <td>{{ promoco.titulo }}</td>
+            </tr>
+            <tr>
+                <th>Datainicio</th>
+                <td>{% if promoco.datainicio %}{{ promoco.datainicio|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Datafinal</th>
+                <td>{% if promoco.datafinal %}{{ promoco.datafinal|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_promocoes_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_promocoes_edit', { 'id': promoco.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

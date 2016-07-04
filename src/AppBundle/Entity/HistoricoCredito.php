@@ -19,7 +19,7 @@ class HistoricoCredito
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idhistoricoCredito;
+    private $id;
 
     /**
      * @var integer
@@ -52,6 +52,84 @@ class HistoricoCredito
      */
     private $usuario;
 
+    /**
+     * @return Usuario
+     */
+    public function getUsuario()
+    {
+        return $this->usuario;
+    }
 
+    /**
+     * @param \Usuario $usuario
+     */
+    public function setUsuario(Usuario $usuario)
+    {
+        $this->usuario = $usuario;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $idhistoricoCredito
+     */
+    public function setId($idhistoricoCredito)
+    {
+        $this->id = $idhistoricoCredito;
+    }
+
+    /**
+     * @return int
+     */
+    public function getControleCredito()
+    {
+        return $this->controleCredito;
+    }
+
+    /**
+     * @param int $controleCredito
+     */
+    public function setControleCredito($controleCredito)
+    {
+        $this->controleCredito = $controleCredito;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getData()
+    {
+        return $this->data;
+    }
+
+    /**
+     * @param \DateTime $data
+     */
+    public function setData($data)
+    {
+        $this->data = $data;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescricao()
+    {
+        return $this->descricao;
+    }
+
+    /**
+     * @param string $descricao
+     */
+    public function setDescricao($descricao)
+    {
+        $this->descricao = $descricao;
+    }
 }
 

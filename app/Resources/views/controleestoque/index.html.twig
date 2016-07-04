@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>ControleEstoque list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Quantidade</th>
+                <th>Ativo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for controleEstoque in controleEstoques %}
+            <tr>
+                <td><a href="{{ path('admin_controle_estoque_show', { 'id': controleEstoque.id }) }}">{{ controleEstoque.id }}</a></td>
+                <td>{{ controleEstoque.quantidade }}</td>
+                <td>{{ controleEstoque.ativo }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_controle_estoque_show', { 'id': controleEstoque.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_controle_estoque_edit', { 'id': controleEstoque.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_controle_estoque_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
