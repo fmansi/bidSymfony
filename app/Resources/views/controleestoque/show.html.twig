@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>ControleEstoque</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ controleEstoque.id }}</td>
+            </tr>
+            <tr>
+                <th>Quantidade</th>
+                <td>{{ controleEstoque.quantidade }}</td>
+            </tr>
+            <tr>
+                <th>Ativo</th>
+                <td>{{ controleEstoque.ativo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_controle_estoque_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_controle_estoque_edit', { 'id': controleEstoque.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

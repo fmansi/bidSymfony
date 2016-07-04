@@ -19,7 +19,7 @@ class Cidade
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idcidade;
+    private $id;
 
     /**
      * @var string
@@ -38,6 +38,52 @@ class Cidade
      */
     private $estado;
 
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
+    /**
+     * @param int $idcidade
+     */
+    public function setId($idcidade)
+    {
+        $this->id = $idcidade;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNome()
+    {
+        return $this->nome;
+    }
+
+    /**
+     * @param string $nome
+     */
+    public function setNome($nome)
+    {
+        $this->nome = $nome;
+    }
+
+    /**
+     * @return Estado
+     */
+    public function getEstado()
+    {
+        return $this->estado;
+    }
+
+    /**
+     * @param \Estado $estado
+     */
+    public function setEstado(Estado $estado)
+    {
+        $this->estado = $estado;
+    }
 }
 

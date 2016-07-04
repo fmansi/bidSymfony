@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Agencia</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ agencium.id }}</td>
+            </tr>
+            <tr>
+                <th>Nome</th>
+                <td>{{ agencium.nome }}</td>
+            </tr>
+            <tr>
+                <th>Razaosocial</th>
+                <td>{{ agencium.razaoSocial }}</td>
+            </tr>
+            <tr>
+                <th>Endereco</th>
+                <td>{{ agencium.endereco }}</td>
+            </tr>
+            <tr>
+                <th>Cep</th>
+                <td>{{ agencium.cep }}</td>
+            </tr>
+            <tr>
+                <th>Telefone</th>
+                <td>{{ agencium.telefone }}</td>
+            </tr>
+            <tr>
+                <th>Fax</th>
+                <td>{{ agencium.fax }}</td>
+            </tr>
+            <tr>
+                <th>Cnpj</th>
+                <td>{{ agencium.cnpj }}</td>
+            </tr>
+            <tr>
+                <th>Inscrestadual</th>
+                <td>{{ agencium.inscrEstadual }}</td>
+            </tr>
+            <tr>
+                <th>Inscrmunicipal</th>
+                <td>{{ agencium.inscrMunicipal }}</td>
+            </tr>
+            <tr>
+                <th>Horariocomercial</th>
+                <td>{{ agencium.horarioComercial }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_agencia_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_agencia_edit', { 'id': agencium.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

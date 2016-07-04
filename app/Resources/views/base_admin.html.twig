@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <style>
+            body{
+                font-size:12px;
+            }
+
+            ul li{
+                float: left;
+                margin-left: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li><a href="{{ url('admin_passagem_index') }}">Passagem</a></li>
+            <li><a href="{{ url('admin_cidade_index') }}">Cidade</a></li>
+            <li><a href="{{ url('admin_estado_index') }}">Estado</a></li>
+            <li><a href="{{ url('admin_agencia_index') }}">Agencia</a></li>
+            <li><a href="{{ url('admin_controle_estoque_index') }}">Controle de estoque</a></li>
+            <li><a href="{{ url('admin_controle_vendas_index') }}">Controle Vendas</a></li>
+            <li><a href="{{ url('admin_historico_credito_index') }}">Historico Credito</a></li>
+            <li><a href="{{ url('admin_promocoes_index') }}">Promoções</a></li>
+        </ul>
+
+        <br style="clear: both"/>
+
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

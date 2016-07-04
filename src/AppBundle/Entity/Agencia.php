@@ -19,7 +19,7 @@ class Agencia
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idagencia;
+    private $id;
 
     /**
      * @var string
@@ -111,6 +111,211 @@ class Agencia
      */
     private $estado;
 
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
+    /**
+     * @param int $idagencia
+     */
+    public function setId($idagencia)
+    {
+        $this->id = $idagencia;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNome()
+    {
+        return $this->nome;
+    }
+
+    /**
+     * @param string $nome
+     */
+    public function setNome($nome)
+    {
+        $this->nome = $nome;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRazaoSocial()
+    {
+        return $this->razaoSocial;
+    }
+
+    /**
+     * @param string $razaoSocial
+     */
+    public function setRazaoSocial($razaoSocial)
+    {
+        $this->razaoSocial = $razaoSocial;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEndereco()
+    {
+        return $this->endereco;
+    }
+
+    /**
+     * @param string $endereco
+     */
+    public function setEndereco($endereco)
+    {
+        $this->endereco = $endereco;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCep()
+    {
+        return $this->cep;
+    }
+
+    /**
+     * @param string $cep
+     */
+    public function setCep($cep)
+    {
+        $this->cep = $cep;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTelefone()
+    {
+        return $this->telefone;
+    }
+
+    /**
+     * @param string $telefone
+     */
+    public function setTelefone($telefone)
+    {
+        $this->telefone = $telefone;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFax()
+    {
+        return $this->fax;
+    }
+
+    /**
+     * @param string $fax
+     */
+    public function setFax($fax)
+    {
+        $this->fax = $fax;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCnpj()
+    {
+        return $this->cnpj;
+    }
+
+    /**
+     * @param string $cnpj
+     */
+    public function setCnpj($cnpj)
+    {
+        $this->cnpj = $cnpj;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInscrEstadual()
+    {
+        return $this->inscrEstadual;
+    }
+
+    /**
+     * @param string $inscrEstadual
+     */
+    public function setInscrEstadual($inscrEstadual)
+    {
+        $this->inscrEstadual = $inscrEstadual;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInscrMunicipal()
+    {
+        return $this->inscrMunicipal;
+    }
+
+    /**
+     * @param string $inscrMunicipal
+     */
+    public function setInscrMunicipal($inscrMunicipal)
+    {
+        $this->inscrMunicipal = $inscrMunicipal;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHorarioComercial()
+    {
+        return $this->horarioComercial;
+    }
+
+    /**
+     * @param string $horarioComercial
+     */
+    public function setHorarioComercial($horarioComercial)
+    {
+        $this->horarioComercial = $horarioComercial;
+    }
+
+    /**
+     * @return Cidade
+     */
+    public function getCidade()
+    {
+        return $this->cidade;
+    }
+
+    /**
+     * @param \Cidade $cidade
+     */
+    public function setCidade(Cidade $cidade)
+    {
+        $this->cidade = $cidade;
+    }
+
+    /**
+     * @return Estado     */
+    public function getEstado()
+    {
+        return $this->estado;
+    }
+
+    /**
+     * @param \Estado $estado
+     */
+    public function setEstado(Estado $estado)
+    {
+        $this->estado = $estado;
+    }
 }
 

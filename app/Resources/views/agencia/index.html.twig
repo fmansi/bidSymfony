@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Agencia list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Razaosocial</th>
+                <th>Endereco</th>
+                <th>Cep</th>
+                <th>Telefone</th>
+                <th>Fax</th>
+                <th>Cnpj</th>
+                <th>Inscrestadual</th>
+                <th>Inscrmunicipal</th>
+                <th>Horariocomercial</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for agencium in agencias %}
+            <tr>
+                <td><a href="{{ path('admin_agencia_show', { 'id': agencium.id }) }}">{{ agencium.id }}</a></td>
+                <td>{{ agencium.nome }}</td>
+                <td>{{ agencium.razaoSocial }}</td>
+                <td>{{ agencium.endereco }}</td>
+                <td>{{ agencium.cep }}</td>
+                <td>{{ agencium.telefone }}</td>
+                <td>{{ agencium.fax }}</td>
+                <td>{{ agencium.cnpj }}</td>
+                <td>{{ agencium.inscrEstadual }}</td>
+                <td>{{ agencium.inscrMunicipal }}</td>
+                <td>{{ agencium.horarioComercial }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_agencia_show', { 'id': agencium.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_agencia_edit', { 'id': agencium.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_agencia_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

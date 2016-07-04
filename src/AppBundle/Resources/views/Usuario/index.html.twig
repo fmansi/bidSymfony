@@ -1,0 +1,10 @@
+{% block title %}AppBundle:Usuario:index{% endblock %}
+
+{% extends "::base_perfil.html.twig" %}
+
+{% block body %}
+    <h1>Dados Usuário</h1>
+    <center>
+        {{ render(controller('FOSUserBundle:Profile:show')) }}
+    </center>
+{% endblock %}

@@ -19,7 +19,7 @@ class Estado
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idestado;
+    private $id;
 
     /**
      * @var string
@@ -28,6 +28,36 @@ class Estado
      */
     private $nome;
 
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
+    /**
+     * @param int $idestado
+     */
+    public function setId($idestado)
+    {
+        $this->id = $idestado;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNome()
+    {
+        return $this->nome;
+    }
+
+    /**
+     * @param string $nome
+     */
+    public function setNome($nome)
+    {
+        $this->nome = $nome;
+    }
 }
 

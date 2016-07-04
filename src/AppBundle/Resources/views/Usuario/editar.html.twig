@@ -1,0 +1,7 @@
+{% extends "::base_perfil.html.twig" %}
+
+{% block title %}AppBundle:Usuario:index{% endblock %}
+
+{% block body %}
+    {{ render(controller('FOSUserBundle:Profile:edit')) }}
+{% endblock %}

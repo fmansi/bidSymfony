@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Promocoes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Datainicio</th>
+                <th>Datafinal</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for promoco in promocoes %}
+            <tr>
+                <td><a href="{{ path('admin_promocoes_show', { 'id': promoco.id }) }}">{{ promoco.id }}</a></td>
+                <td>{{ promoco.titulo }}</td>
+                <td>{% if promoco.datainicio %}{{ promoco.datainicio|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if promoco.datafinal %}{{ promoco.datafinal|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_promocoes_show', { 'id': promoco.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_promocoes_edit', { 'id': promoco.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_promocoes_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,5 +1,24 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    aew
+
+    <a href="{{ url('LeilaoBundle', {'situation' : 'abertos'}) }}"><input type="button" value="Leições abertos"></a>
+    <a href="{{ url('LeilaoBundle', {'situation' : 'proximos'}) }}"><input  type="button" value="Proximos leilões"></a>
+    <a href="{{ url('LeilaoBundle', {'situation' : 'fechado'}) }}"><input  type="button" value="Leilões encerrados"></a>
+
+    <br style="clear: both"/>
+    {% for passagem in listaLeilao %}
+        <div style="width:120px;height:120px;float:left;margin-left:10px; border:solid 1px black">
+            {{ passagem.titulo }}<br/>
+            {{ passagem.descricao }}
+            <br/><br/>
+            {% if passagem.leilao.tempoleilao is not null %}
+                {{ passagem.leilao.tempoleilao }}
+
+                <a href=""><input type="button" value="Dê Seu lançe"/> </a>
+            {% else %}
+                <b>Leilão terminado</b>
+            {% endif %}
+        </div>
+    {% endfor %}
 {% endblock %}

@@ -38,6 +38,52 @@ class Imagem
      */
     private $passagem;
 
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->idimagem;
+    }
 
+    /**
+     * @param int $idimagem
+     */
+    public function setId($idimagem)
+    {
+        $this->idimagem = $idimagem;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSrc()
+    {
+        return $this->src;
+    }
+
+    /**
+     * @param string $src
+     */
+    public function setSrc($src)
+    {
+        $this->src = $src;
+    }
+
+    /**
+     * @return Passagem
+     */
+    public function getPassagem()
+    {
+        return $this->passagem;
+    }
+
+    /**
+     * @param \Passagem $passagem
+     */
+    public function setPassagem(Passagem $passagem)
+    {
+        $this->passagem = $passagem;
+    }
 }
 

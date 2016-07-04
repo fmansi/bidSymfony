@@ -19,7 +19,7 @@ class ControleEstoque
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idcontroleEstoque;
+    private $id;
 
     /**
      * @var integer
@@ -45,6 +45,68 @@ class ControleEstoque
      */
     private $passagem;
 
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
+    /**
+     * @param int $idcontroleEstoque
+     */
+    public function setId($idcontroleEstoque)
+    {
+        $this->id = $idcontroleEstoque;
+    }
+
+    /**
+     * @return int
+     */
+    public function getQuantidade()
+    {
+        return $this->quantidade;
+    }
+
+    /**
+     * @param int $quantidade
+     */
+    public function setQuantidade($quantidade)
+    {
+        $this->quantidade = $quantidade;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAtivo()
+    {
+        return $this->ativo;
+    }
+
+    /**
+     * @param string $ativo
+     */
+    public function setAtivo($ativo)
+    {
+        $this->ativo = $ativo;
+    }
+
+    /**
+     * @return Passagem
+     */
+    public function getPassagem()
+    {
+        return $this->passagem;
+    }
+
+    /**
+     * @param Passagem $passagem
+     */
+    public function setPassagem(Passagem $passagem)
+    {
+        $this->passagem = $passagem;
+    }
 }
 

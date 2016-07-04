@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <style>
+            body{
+                font-size:12px;
+            }
+
+            ul li{
+                float: left;
+                margin-left: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li><a href="{{ url('AppBundleHome') }}">Home</a></li>
+            <li><a href="{{ url('AppBundleUsuarioEditar') }}">Editar Cadastro</a></li>
+            <li><a href="{{ url('AppBundleUsuarioComprarLances') }}">Comprar Lançes</a></li>
+        </ul>
+
+        <br style="clear: both"/>
+
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

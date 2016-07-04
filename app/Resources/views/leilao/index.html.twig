@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Leilao list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Datainicio</th>
+                <th>Tempoleilao</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for leilao in leilaos %}
+            <tr>
+                <td><a href="{{ path('admin_leilao_show', { 'id': leilao.id }) }}">{{ leilao.id }}</a></td>
+                <td>{% if leilao.datainicio %}{{ leilao.datainicio|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if leilao.tempoleilao %}{{ leilao.tempoleilao|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_leilao_show', { 'id': leilao.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_leilao_edit', { 'id': leilao.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_leilao_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

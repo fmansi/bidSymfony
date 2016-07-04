@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>ControleVendas list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Datavenda</th>
+                <th>Informacoes</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for controleVenda in controleVendas %}
+            <tr>
+                <td><a href="{{ path('admin_controle_vendas_show', { 'id': controleVenda.id }) }}">{{ controleVenda.id }}</a></td>
+                <td>{% if controleVenda.datavenda %}{{ controleVenda.datavenda|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ controleVenda.informacoes }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_controle_vendas_show', { 'id': controleVenda.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_controle_vendas_edit', { 'id': controleVenda.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_controle_vendas_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

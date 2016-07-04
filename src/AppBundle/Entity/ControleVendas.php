@@ -19,7 +19,7 @@ class ControleVendas
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idcontroleVendas;
+    private $id;
 
     /**
      * @var \DateTime
@@ -55,6 +55,84 @@ class ControleVendas
      */
     private $usuario;
 
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
+    /**
+     * @param int $idcontroleVendas
+     */
+    public function setId($idcontroleVendas)
+    {
+        $this->id = $idcontroleVendas;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDatavenda()
+    {
+        return $this->datavenda;
+    }
+
+    /**
+     * @param \DateTime $datavenda
+     */
+    public function setDatavenda($datavenda)
+    {
+        $this->datavenda = $datavenda;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInformacoes()
+    {
+        return $this->informacoes;
+    }
+
+    /**
+     * @param string $informacoes
+     */
+    public function setInformacoes($informacoes)
+    {
+        $this->informacoes = $informacoes;
+    }
+
+    /**
+     * @return Passagem
+     */
+    public function getPassagem()
+    {
+        return $this->passagem;
+    }
+
+    /**
+     * @param \Passagem $passagem
+     */
+    public function setPassagem(Passagem $passagem)
+    {
+        $this->passagem = $passagem;
+    }
+
+    /**
+     * @return Usuario
+     */
+    public function getUsuario()
+    {
+        return $this->usuario;
+    }
+
+    /**
+     * @param \Usuario $usuario
+     */
+    public function setUsuario(Usuario $usuario)
+    {
+        $this->usuario = $usuario;
+    }
 }
 
