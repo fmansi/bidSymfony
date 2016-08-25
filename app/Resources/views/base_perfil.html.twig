@@ -64,7 +64,7 @@
                 <li><a href="{{ path('fos_user_security_logout') }}">
                         {{ 'Sair'|trans({}, 'FOSUserBundle') }}
                     </a></li>
-                <li><a href="#">Olá {{ user.username }}</a></li>
+                <li><a href="#">Olá {{ app.user.username }}</a></li>
             {% else %}
                 <li><a href="{{ path('fos_user_security_login') }}">Cadastro</a></li>
                 <li><a href="{{ path('fos_user_security_login') }}">{{ 'Entrar'|trans({}, 'FOSUserBundle') }}</a></li>
