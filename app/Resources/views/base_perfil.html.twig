@@ -1,31 +1,204 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        <style>
-            body{
-                font-size:12px;
-            }
+<html lang="pt">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Bid Travel Brasil</title>
 
-            ul li{
-                float: left;
-                margin-left: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <ul>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    {% stylesheets '@AppBundle/Resources/css/materialize.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" rel="stylesheet" media="screen"/>
+    {% endstylesheets %}
+
+    {% stylesheets '@AppBundle/Resources/css/font-awesome.min.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" rel="stylesheet" media="screen"/>
+    {% endstylesheets %}
+
+    {% stylesheets '@AppBundle/Resources/css/style.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" rel="stylesheet" media="screen"/>
+    {% endstylesheets %}
+
+    {% stylesheets '@AppBundle/Resources/css/project.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" rel="stylesheet" media="screen"/>
+    {% endstylesheets %}
+
+    {% stylesheets '@AppBundle/Resources/css/swiper.min.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" rel="stylesheet" media="screen"/>
+    {% endstylesheets %}
+
+    {% stylesheets '@AppBundle/Resources/css/favicon.ico' %}
+    <!--[if IE]><link rel="shortcut icon" href="{{ asset_url }}"><![endif]-->
+    <link rel="icon" href="{{ asset_url }}">
+    {% endstylesheets %}
+
+    {% block javascripts %}{% endblock %}
+</head>
+<body class="grey lighten-2">
+
+<!-- ##### Menu ##### -->
+
+<nav class="light-blue lighten-1 navbar-fixed">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo center">
+            {% image output="images/logo-bid-travel.png"
+            '@AppBundle/Resources/images/logo-bid-travel.png'
+            %}
+            <img class="responsive-img" src="{{ asset_url }}" alt="Bid Travel Brasil" />
+            {% endimage %}
+        </a>
+        <ul class="left hide-on-med-and-down">
             <li><a href="{{ url('AppBundleHome') }}">Home</a></li>
-            <li><a href="{{ url('AppBundleUsuarioEditar') }}">Editar Cadastro</a></li>
-            <li><a href="{{ url('AppBundleUsuarioComprarLances') }}">Comprar Lançes</a></li>
+            <li><a href="{{ url('AppBundleComoFunciona') }}">Como funciona</a></li>
+            <li><a href="{{ url('LeilaoBundle') }}">Leilão</a></li>
+            <li><a href="{{ url('AppBundleCupons') }}">Cupons</a></li>
+            <li><a href="{{ url('AppBundleSocial') }}">Social</a></li>
         </ul>
 
-        <br style="clear: both"/>
+        <ul class="right hide-on-med-and-down">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <li><a href="{{ path('AppBundleUsuarioHome') }}">
+                        {{ 'Minha Conta'|trans({}, 'AppBundleUsuarioHome') }}
+                    </a></li>
+                <li><a href="{{ path('fos_user_security_logout') }}">
+                        {{ 'Sair'|trans({}, 'FOSUserBundle') }}
+                    </a></li>
+                <li><a href="#">Olá {{ user.username }}</a></li>
+            {% else %}
+                <li><a href="{{ path('fos_user_security_login') }}">Cadastro</a></li>
+                <li><a href="{{ path('fos_user_security_login') }}">{{ 'Entrar'|trans({}, 'FOSUserBundle') }}</a></li>
+                <li><a href="#">06 de Abr 2016 18:52:22</a></li>
+            {% endif %}
+        </ul>
 
+        <ul id="nav-mobile" class="side-nav">
+            li><a href="{{ url('AppBundleHome') }}">Home</a></li>
+            <li><a href="{{ url('AppBundleComoFunciona') }}">Como funciona</a></li>
+            <li><a href="{{ url('LeilaoBundle') }}">Leilão</a></li>
+            <li><a href="{{ url('AppBundleCupons') }}">Cupons</a></li>
+            <li><a href="{{ url('AppBundleSocial') }}">Social</a></li>
+            <li><a href="register.html">Cadastro</a></li>
+            <li><a href="login.html">Entrar</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+</nav>
+<!-- ##### Menu ##### -->
+<!-- ##### Title ##### -->
+<div class="row">
+    <div class ="titles-box" >
+        <h1 class = "titles-top">Minha</h1>
+        <h3 class = "titles-bottom">Conta</h3>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col s3">
+            <ul class="collection with-header">
+                <li class="collection-header">LANCES</li>
+                <a href="#!" class="collection-item {% if foo == "historicos" %}active{% endif %}">Históricos de lances</a>
+                <li class="collection-header">LEILÃO</li>
+                <a href="#!" class="collection-item {% if foo == "arremates" %}active{% endif %}">Meus arremates</a>
+                <a href="#!" class="collection-item {% if foo == "favoritos" %}active{% endif %}">Favoritos</a>
+                <li class="collection-header">PERFIL</li>
+                <a href="" class="collection-item {% if foo == "detalhes" %}active{% endif %}">Meus detalhes</a>
+                <a href="{{ url('AppBundleUsuarioAlterarSenha') }}" class="collection-item {% if foo == "alterar" %}active{% endif %}">Alterar senha</a>
+                <a href="#!" class="collection-item">Redes sociais</a>
+                <a href="#!" class="collection-item">Encerrar conta</a>
+                <li class="collection-header">ASSINATURA</li>
+                <a href="#!" class="collection-item">Assinar</a>
+
+            </ul>
+        </div>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+    </div>
+</div>
+
+<!-- ##### Cias Areas ##### -->
+
+<!-- ##### RODAPÉ ####  -->
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+
+            <div class="col l3 s12 m6 tt-cd-email footer-mobile">
+                <span class="white-text left"><i class="material-icons">markunread_mailbox</i> <b>CADASTRE O SEU E-MAIL</b></span>
+                <small class="white-text left">E fique por dentro das novidades!</small>
+                <div class="input-field col s6">
+                    <input id="email" type="email" class="validate">
+                    <label class="color-input-cd" for="email" data-error="E-mail incorreto" data-success="Correto">E-mail</label>
+                </div>
+                <div class="input-field col s2">
+                    <a class="waves-effect black btn">OK <i class="material-icons right">send</i></a>
+                </div>
+            </div>
+
+            <div class="col l2 s12 m3 footer-mobile">
+                <span class="white-text"><b>A EMPRESA</b></span>
+                <ul>
+                    <li><a class="white-text" href="terms.html">Termos de uso</a></li>
+                    <li><a class="white-text" href="whoweare.html">Quem somos</a></li>
+                    <li><a class="white-text" href="privacy.html">Privacidade</a></li>
+                    <li><a class="white-text" href="works.html">Como funciona</a></li>
+                    <li><a class="white-text" href="doubts.html">Dúvidas</a></li>
+                    <li><a class="white-text" href="contact.html">Fale conosco</a></li>
+                </ul>
+            </div>
+
+            <div class="col l2 s12 m3 center footer-mobile">
+                <span class="white-text"><b>SEGURANÇA</b></span>
+                <figure>
+                    <img class="responsive-img" src="http://localhost/www/img/icone-ssl.png" alt="ssl">
+                </figure>
+            </div>
+
+
+            <div class="col l3 s12 m6 center">
+          <span class="white-text "><b>FORMA DE PAGAMENTO</b></h5>
+          <figure>
+            <img class="responsive-img" src="http://localhost/www/img/icone-pagamento.png" alt="pagamentos">
+          </figure>
+            </div>
+
+            <div class="col  l2 s12 m6 center">
+                <span class="white-text"><b>REDES SOCIAIS</b></span>
+                <figure class="white-text">
+                    <i class="fa fa-facebook-square fa-2x"></i>
+                    <i class="fa fa-twitter-square fa-2x "></i>
+                    <i class="fa fa-instagram fa-2x"></i>
+                </figure>
+
+
+                <!--
+                <h5 class="white-text center">Baixe gratís o app</h5>
+
+                <div class="col s4">
+                 <a class="white-text" href="#!"><img class="responsive-img icones-app" src="img/app-store.png" alt="App Store"></a>
+                </div>
+
+                <div class="col s4">
+                 <a class="white-text" href="#!"><img class="responsive-img icones-app" src="img/app-google.png" alt="App Google"></a>
+                </div>
+
+                <div class="col s4">
+                 <a class="white-text" href="#!"><img class="responsive-img icones-app" src="img/app-windows.png" alt="App Windows"></a>
+                </div>
+
+              </div>
+              -->
+            </div>
+        </div>
+    </div>
+    <!--
+        <div class="footer-copyright">
+          <div class="container">
+          Made by <a class="white-text text-lighten-3" href="www.accento.com.br">Accento</a>
+          </div>
+        </div>
+    -->
+</footer>
+
+<!-- ##### RODAPÉ ####  -->
+</body>
 </html>

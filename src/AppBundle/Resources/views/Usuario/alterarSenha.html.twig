@@ -1,0 +1,36 @@
+{% set foo = 'alterar' %}
+{% block title %}Alterar senha{% endblock %}
+
+{% extends "::base_perfil.html.twig" %}
+
+{% block body %}
+    <style>
+        #fos_user_change_password_form label{
+            position: relative;
+            float: left;
+            display: block;
+        }
+        #fos_user_change_password_form input{
+            color:black;
+            float: left;
+            position: relative;
+        }
+    </style>
+    <div class="col s9">
+        <div class="card-panel">
+            <h5>Alterar Senha</h5>
+            <div class="divider"></div>
+
+            <div class="row">
+                <div class="input-field center">
+                    {{ form_start(form, { 'action': path('AppBundleUsuarioAlterarSenha'), 'attr': { 'class': 'fos_user_change_password' } }) }}
+                    {{ form_widget(form) }}
+                    <div>
+                        <input type="submit" value="Alterar senha" />
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
