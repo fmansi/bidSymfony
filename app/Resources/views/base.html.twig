@@ -64,11 +64,12 @@
                 <li><a href="{{ path('fos_user_security_logout') }}">
                         {{ 'Sair'|trans({}, 'FOSUserBundle') }}
                     </a></li>
+                <li><a href="#">Olá {{ user.username }}</a></li>
             {% else %}
-                <li><a href="register.html">Cadastro</a></li>
+                <li><a href="{{ path('fos_user_security_login') }}">Cadastro</a></li>
                 <li><a href="{{ path('fos_user_security_login') }}">{{ 'Entrar'|trans({}, 'FOSUserBundle') }}</a></li>
+                <li><a href="#">06 de Abr 2016 18:52:22</a></li>
             {% endif %}
-            <li><a href="#">06 de Abr 2016 18:52:22</a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
