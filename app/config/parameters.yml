@@ -5,8 +5,9 @@ parameters:
     database_name: bidtravel
     database_user: root
     database_password: root
-    mailer_transport: smtp
-    mailer_host: 127.0.0.1
-    mailer_user: null
-    mailer_password: null
+    mailer_transport: gmail
+    mailer_host: smtp.gmail.com
+    mailer_user: dereckvicentin@gmail.com
+    mailer_password: 852conde
+    mailer_port: 465
     secret: 07b896f45141f2deb46e5dfb8fa8bde7bf9e1a7d
