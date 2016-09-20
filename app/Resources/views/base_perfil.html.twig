@@ -102,7 +102,7 @@
                 <a href="#!" class="collection-item {% if foo == "arremates" %}active{% endif %}">Meus arremates</a>
                 <a href="#!" class="collection-item {% if foo == "favoritos" %}active{% endif %}">Favoritos</a>
                 <li class="collection-header">PERFIL</li>
-                <a href="" class="collection-item {% if foo == "detalhes" %}active{% endif %}">Meus detalhes</a>
+                <a href="{{ url('AppBundleUsuarioHome') }}" class="collection-item {% if foo == "detalhes" %}active{% endif %}">Meus detalhes</a>
                 <a href="{{ url('AppBundleUsuarioAlterarSenha') }}" class="collection-item {% if foo == "alterar" %}active{% endif %}">Alterar senha</a>
                 <a href="#!" class="collection-item">Redes sociais</a>
                 <a href="#!" class="collection-item">Encerrar conta</a>

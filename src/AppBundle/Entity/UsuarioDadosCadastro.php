@@ -54,7 +54,7 @@ class UsuarioDadosCadastro
      *
      * @ORM\Column(name="telefone", type="string", length=45, nullable=true)
      */
-    private $telefone;
+    private $telefoneRes;
 
     /**
      * @var \Cidade
@@ -75,6 +75,48 @@ class UsuarioDadosCadastro
      * })
      */
     private $estado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="numero", type="integer", length=45, nullable=true)
+     */
+    private $numero;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cep", type="string", length=45, nullable=true)
+     */
+    private $cep;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="complemento", type="string", length=255, nullable=true)
+     */
+    private $complemento;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="bairro", type="string", length=255, nullable=true)
+     */
+    private $bairro;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dataNascimento", type="date", length=45, nullable=true)
+     */
+    private $dataNascimento;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telefoneCel", type="string", length=45, nullable=true)
+     */
+    private $telefoneCel;
 
     /**
      * @return int
@@ -202,6 +244,118 @@ class UsuarioDadosCadastro
     public function setEstado($estado)
     {
         $this->estado = $estado;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNumero()
+    {
+        return $this->numero;
+    }
+
+    /**
+     * @param mixed $numero
+     */
+    public function setNumero($numero)
+    {
+        $this->numero = $numero;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCep()
+    {
+        return $this->cep;
+    }
+
+    /**
+     * @param mixed $cep
+     */
+    public function setCep($cep)
+    {
+        $this->cep = $cep;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getComplemento()
+    {
+        return $this->complemento;
+    }
+
+    /**
+     * @param mixed $complemento
+     */
+    public function setComplemento($complemento)
+    {
+        $this->complemento = $complemento;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBairro()
+    {
+        return $this->bairro;
+    }
+
+    /**
+     * @param mixed $bairro
+     */
+    public function setBairro($bairro)
+    {
+        $this->bairro = $bairro;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDataNascimento()
+    {
+        return $this->dataNascimento;
+    }
+
+    /**
+     * @param mixed $dataNascimento
+     */
+    public function setDataNascimento($dataNascimento)
+    {
+        $this->dataNascimento = $dataNascimento;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTelefoneRes()
+    {
+        return $this->telefoneRes;
+    }
+
+    /**
+     * @param mixed $telefoneRes
+     */
+    public function setTelefoneRes($telefoneRes)
+    {
+        $this->telefoneRes = $telefoneRes;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTelefoneCel()
+    {
+        return $this->telefoneCel;
+    }
+
+    /**
+     * @param mixed $telefoneCel
+     */
+    public function setTelefoneCel($telefoneCel)
+    {
+        $this->telefoneCel = $telefoneCel;
     }
 }
 

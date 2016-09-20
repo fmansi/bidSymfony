@@ -308,4 +308,14 @@
             </div>
         </div>
     </div>
+    {% block javascripts %}
+        {% javascripts
+        '@AppBundle/Resources/js/jquery-2.1.1.min.js'
+        '@AppBundle/Resources/js/materialize.js'
+        '@AppBundle/Resources/js/init.js'
+        '@AppBundle/Resources/js/swiper.min.js'
+        '@AppBundle/Resources/js/home.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock %}
 {% endblock %}
