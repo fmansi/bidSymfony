@@ -2,8 +2,13 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\UsuarioDadosCadastro;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Event\FormEvent;
@@ -12,6 +17,9 @@ use FOS\UserBundle\Event\GetResponseUserEvent;
 use FOS\UserBundle\Model\UserInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class UsuarioController extends Controller
 {
@@ -20,6 +28,11 @@ class UsuarioController extends Controller
      */
     public function indexAction()
     {
+        // não existe dados de cadastro
+        if (!$this->getUser()->getDadosCadastro()) {
+            return $this->redirect($this->generateUrl('fos_user_registration_confirmed'));
+        }
+
         return $this->render('AppBundle:Usuario:index.html.twig', array(
             'user' => $this->getUser()
         ));
@@ -83,9 +96,67 @@ class UsuarioController extends Controller
      */
     public function editarAction()
     {
+
         return $this->render('AppBundle:Usuario:editar.html.twig', array(
-            // ...
         ));
+    }
+
+    /**
+     * @Route("/usuario/salvar_dados_usuario", name="AppBundleUsuarioSalvarDados")
+     * @Template()
+     */
+    public function saveDadosCadastroAction(Request $request)
+    {
+        $cadastro = new UsuarioDadosCadastro();
+
+        $form = $this->createFormBuilder($cadastro)
+            ->add('endereco', TextType::class)
+            ->add('numero', IntegerType::class)
+            ->add('estado', EntityType::class, array(
+                // query choices from this entity
+                'class' => 'AppBundle\Entity\Estado',
+
+                // use the User.username property as the visible option string
+                'choice_label' => 'nome',
+
+                // used to render a select box, check boxes or radios
+                // 'multiple' => true,
+                // 'expanded' => true,
+            ))
+            ->add('cpf', TextType::class,array(
+                'attr' => array('id' => 'cpf')
+            ))
+            ->add('cep', TextType::class, array(
+                'attr' => array('id' => 'cep')
+            ))
+            ->add('complemento', TextType::class)
+            ->add('bairro', TextType::class)
+            ->add('dataNascimento', TextType::class, array(
+                'attr' => array('placeholder' => 'dd/mm/yyyy', 'id' => 'dataNascimento')
+            ))
+            ->add('telefoneRes', TextType::class,array(
+                'attr' => array('id' => 'telefoneRes')
+            ))
+            ->add('telefoneCel', TextType::class,array(
+                'attr' => array('id' => 'telefoneCel')
+            ))
+            ->add('save', SubmitType::class, array(
+                'attr' => array('class' => 'green darken-3 btn')
+            ))
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($cadastro);
+            $em->flush();
+        }
+
+        return array(
+            'form' => $form->createView(),
+            'user' => $this->getUser()
+        );
     }
 
     /**

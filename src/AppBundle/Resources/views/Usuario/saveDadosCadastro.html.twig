@@ -1,0 +1,173 @@
+{% extends "base.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block body %}
+
+    <!-- ##### Menu ##### -->
+    <div class="container">
+        <div class ="white-text left" style="border-right: 3px solid #fff; height: 170px; margin: 15px;">
+            <div class ="titles-box" >
+                <h1 class = "titles-top">Crie</h1>
+                <h3 class = "titles-bottom" style="margin-right: 10px;">sua conta.</h3>
+            </div>
+        </div>
+        <ul class="pagination white-text">
+            <li class="waves-effect"><a href="register.html">Etapa1</a></li>
+            <li class="active" ><a href="register_2.html">Etapa2</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="col s12 card-panel">
+            <h5>Informações de Contato </h5>
+            {{ form_start(form) }}
+                <div class="row">
+
+                    <!-- Data first step -->
+                    <div class="col l6 m12 s12">
+                        <div class="input-field col s12">
+                            <input disabled id="country" type="text" value ="Brasil">
+                            <label for="country" >País</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input disabled id="create" type="text" value="27/07/2016 20:00 GMT -03:00">
+                            <label for="create" >Criado em</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input  disabled id="name" type="text" class="validate" value ="Eclair Jones">
+                            <label for="name">Nome</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input disabled id="email" type="text" class="validate" value ="{{ user.email }}">
+                            <label for="email">E-mail</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input disabled id="nickname" type="text" class="validate" value ="eclairjones">
+                            <label for="nickname">Apelido</label>
+                        </div>
+                    </div>
+                    <!-- Data first step -->
+
+                    <!-- Data second step -->
+                    <div class="col l6 m12 s12">
+
+                        <div class="input-field col  s8">
+                            {{ form_widget(form.cep) }}
+                            <label for="form_cep" >CEP</label>
+                        </div>
+
+                        <div class="input-field col  s2">
+                            <button class="btn waves-effect waves-light black-text lime lighten-3" type="button" name="action">Buscar Endereço</button>
+                        </div>
+
+
+                        <div class="input-field col s8">
+
+                            {{ form_widget(form.endereco) }}
+                            <label for="address">Endereço</label>
+                        </div>
+
+                        <div class="input-field col s4">
+                            {{ form_widget(form.numero) }}
+                            <label for="number">Numero</label>
+                        </div>
+
+                        <div class="input-field col s6">
+                            {{ form_widget(form.complemento) }}
+                            <label for="complement" >Complemento</label>
+                        </div>
+
+                        <div class="input-field col s6">
+                            {{ form_widget(form.bairro) }}
+                            <label for="neighborhood" >Bairro</label>
+                        </div>
+
+
+                        <div class="input-field col s6">
+                            <input id="city" type="text" class="validate">
+                            <label for="city">Cidade</label>
+                        </div>
+
+                        <div class="input-field col s6">
+                            {{ form_widget(form.estado) }}
+                        </div>
+
+                        <div class="input-field col s6">
+                            {{ form_widget(form.cpf) }}
+                            <label for="cpf">CPF</label>
+                        </div>
+
+                        <div class="input-field col s6">
+                            {{ form_widget(form.dataNascimento) }}
+                            <label for="birthdate">Data de Nascimento</label>
+                        </div>
+
+
+                        <div class="input-field col s6" data-tooltip="Código de área e número">
+                            {{ form_widget(form.telefoneRes) }}
+                            <label for="phone-code">Telefone</label>
+                        </div>
+
+                        <div class="input-field col s6" data-tooltip="Código de área e número">
+                            {{ form_widget(form.telefoneCel) }}
+                            <label for="form_telefoneCel">Celular</label>
+                        </div>
+                    </div>
+
+                    {{ form_errors(form) }}
+                    <!-- Data second step -->
+
+                    <div class="row">
+                        <div class="col col s12 offset-s4 m12 offset-m4 l12 offset-l8">
+                            <button class="btn waves-effect waves-light  lime darken-3" type="reset" id="configreset" value="Reset">Limpar</button>
+                            {{ form_widget(form.save, { 'label': 'Enviar' }) }}
+                        </div>
+                    </div>
+
+                    {{ form_end(form) }}
+        </div>
+    </div>
+    </div>
+    <!-- ##### Modal Etapa2 ##### -->
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4>Etapa 2 Concluída!</h4>
+            <p>Você ainda não possui saldo de lances para participar dos Leilões! Adquira agora mesmo e garanta o seu acesso aos melhores voos, além de muitos benefícios.</p>
+            <a class="modal-trigger waves-effect red darken-3 btn btn-caption-d" href="#modal2">Clique aqui</a>
+        </div>
+        <div class="modal-footer">
+            <a href="#modal2" class="modal-action modal-close waves-effect waves-green btn-flat ">Fechar</a>
+        </div>
+    </div>
+
+    <!-- ##### Modal Etapa2 ##### -->
+    <!-- ##### Modal Etapa3 ##### -->
+
+    <!-- Modal Structure -->
+    <div id="modal2" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4>Etapa 3 Concluída!</h4>
+            <p>Aguarde enquanto estamos processando o seu pagamento. Em breve você poderá participar dos leilões e terá acesso a uma série de outros benefícios.</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Fechar</a>
+        </div>
+    </div>
+
+    <!-- ##### Modal Etapa3 ##### -->
+
+    {% block javascripts %}
+        {% javascripts
+        '@AppBundle/Resources/js/jquery-2.1.1.min.js'
+        '@AppBundle/Resources/js/materialize.js'
+        '@AppBundle/Resources/js/init.js'
+        '@AppBundle/Resources/js/jquery.formatter.min.js'
+        '@AppBundle/Resources/js/swiper.min.js'
+        '@AppBundle/Resources/js/confirmed.js'%}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock %}
+{% endblock body %}

@@ -8,6 +8,6 @@ parameters:
     mailer_transport: gmail
     mailer_host: smtp.gmail.com
     mailer_user: dereckvicentin@gmail.com
-    mailer_password: 852conde
+    mailer_password: 125898521
     mailer_port: 465
     secret: 07b896f45141f2deb46e5dfb8fa8bde7bf9e1a7d

@@ -1,7 +1,31 @@
+{% set foo = 'detalhes' %}
+{% block title %}Dados de cadastro{% endblock %}
+
 {% extends "::base_perfil.html.twig" %}
 
-{% block title %}AppBundle:Usuario:index{% endblock %}
-
 {% block body %}
-    {{ render(controller('FOSUserBundle:Profile:edit')) }}
+    <style>
+        #fos_user_change_password_form label{
+            position: relative;
+            float: left;
+            display: block;
+        }
+        #fos_user_change_password_form input{
+            color:black;
+            float: left;
+            position: relative;
+        }
+    </style>
+    <div class="col s9">
+        <div class="card-panel">
+            <h5>Dados de cadastro</h5>
+            <div class="divider"></div>
+
+            <div class="row">
+                <div class="input-field center">
+
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
