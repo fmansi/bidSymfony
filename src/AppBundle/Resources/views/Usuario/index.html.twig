@@ -24,7 +24,7 @@
                 </tr>
                 <tr>
                     <td class = "right">Data Nasc: </td> <td>{{ user.dadosCadastro.dataNascimento|date("m/d/Y") }}</td>
-                    <td class = "right">Complemento: </td> <td>{{ user.dadosCadastro.telefoneRes }}</td>
+                    <td class = "right">Complemento: </td> <td>{{ user.dadosCadastro.complemento }}</td>
                 </tr>
                 <tr>
                     <td class = "right">CPF: </td> <td>{{ user.dadosCadastro.cpf }}</td>
@@ -35,7 +35,7 @@
                     <td class = "right">Cidade: </td> <td>Sao Paulo</td>
                 </tr>
                 <tr>
-                    <td class = "right">Telefone celular: </td> <td>11 95555-5555</td>
+                    <td class = "right">Telefone celular: </td> <td>{{ user.dadosCadastro.telefoneCel }}</td>
                     <td class = "right">Estado:</td> <td> {{ user.dadosCadastro.estado.nome }}</td>
                 </tr>
                 </tbody>
