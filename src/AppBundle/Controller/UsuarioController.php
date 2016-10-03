@@ -107,7 +107,11 @@ class UsuarioController extends Controller
      */
     public function saveDadosCadastroAction(Request $request)
     {
-        $cadastro = new UsuarioDadosCadastro();
+        if (!$this->getUser()->getDadosCadastro()) {
+            $cadastro = new UsuarioDadosCadastro();
+        } else {
+            $cadastro = $this->getUser()->getDadosCadastro();
+        }
 
         $form = $this->createFormBuilder($cadastro)
             ->add('endereco', TextType::class)
