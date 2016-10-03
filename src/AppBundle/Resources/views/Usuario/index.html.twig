@@ -23,7 +23,7 @@
                     <td class = "right">Numero: </td> <td>{{ user.dadosCadastro.numero }}</td>
                 </tr>
                 <tr>
-                    <td class = "right">Data Nasc: </td> <td>{{ user.dadosCadastro.dataNascimento }}</td>
+                    <td class = "right">Data Nasc: </td> <td>{{ user.dadosCadastro.dataNascimento|date("m/d/Y") }}</td>
                     <td class = "right">Complemento: </td> <td>{{ user.dadosCadastro.telefoneRes }}</td>
                 </tr>
                 <tr>
