@@ -96,7 +96,6 @@ class UsuarioController extends Controller
      */
     public function editarAction()
     {
-
         return $this->render('AppBundle:Usuario:editar.html.twig', array(
         ));
     }
