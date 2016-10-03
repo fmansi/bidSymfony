@@ -315,7 +315,7 @@ class UsuarioDadosCadastro
      */
     public function getDataNascimento()
     {
-        return $this->dataNascimento->format('d/m/y');
+        return $this->dataNascimento->format('d/m/Y');
     }
 
     /**
