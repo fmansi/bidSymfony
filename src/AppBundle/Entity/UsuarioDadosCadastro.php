@@ -323,7 +323,10 @@ class UsuarioDadosCadastro
      */
     public function setDataNascimento($dataNascimento)
     {
-        $this->dataNascimento = $dataNascimento;
+        $data = explode("/", $dataNascimento);
+        $time = new \DateTime("{$data[2]}-{$data[1]}-{$data[0]}");
+        $time->format('Y-m-d');
+        $this->dataNascimento = $time;
     }
 
     /**

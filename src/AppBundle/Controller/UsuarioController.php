@@ -151,6 +151,14 @@ class UsuarioController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($cadastro);
             $em->flush();
+
+            $usuario = $em->getReference("AppBundle\Entity\Usuario", $this->getUser()->getId());
+            $usuario->setDadosCadastro($cadastro);
+
+            $em->persist($usuario);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('AppBundleUsuarioHome'));
         }
 
         return array(
