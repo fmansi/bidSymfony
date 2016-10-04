@@ -11,15 +11,15 @@
             <table class ="responsive-table striped highlight" >
                 <tbody>
                 <tr>
-                    <td class = "right">Nome:</td> <td>{{ user.dadosCadastro.nome }}</td>
+                    <td class = "right">Nome:</td> <td>{{ user.nome }}</td>
                     <td class = "right">CEP: </td> <td>{{ user.dadosCadastro.cep }}</td>
                 </tr>
                 <tr>
-                    <td class = "right">Sobrenome: </td> <td>{{ user.dadosCadastro.telefoneRes }}</td>
+                    <td class = "right">Sobrenome: </td> <td>{{ user.sobrenome }}</td>
                     <td class = "right">Endereço: </td> <td>{{ user.dadosCadastro.endereco }}</td>
                 </tr>
                 <tr>
-                    <td class = "right">Sexo: </td> <td>Feminino</td>
+                    <td class = "right">Sexo: </td> <td>{{ user.sexo }}</td>
                     <td class = "right">Numero: </td> <td>{{ user.dadosCadastro.numero }}</td>
                 </tr>
                 <tr>
@@ -32,7 +32,7 @@
                 </tr>
                 <tr>
                     <td class = "right">Telefone Fixo: </td> <td>{{ user.dadosCadastro.telefoneRes }}</td>
-                    <td class = "right">Cidade: </td> <td>Sao Paulo</td>
+                    <td class = "right">Cidade: </td> <td>{{ user.dadosCadastro.cidade }}</td>
                 </tr>
                 <tr>
                     <td class = "right">Telefone celular: </td> <td>{{ user.dadosCadastro.telefoneCel }}</td>

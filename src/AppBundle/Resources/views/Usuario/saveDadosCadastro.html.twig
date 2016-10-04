@@ -31,11 +31,7 @@
                             <label for="country" >País</label>
                         </div>
                         <div class="input-field col s12">
-                            <input disabled id="create" type="text" value="27/07/2016 20:00 GMT -03:00">
-                            <label for="create" >Criado em</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <input  disabled id="name" type="text" class="validate" value ="Eclair Jones">
+                            <input  disabled id="name" type="text" class="validate" value ="{{ user.nome }}">
                             <label for="name">Nome</label>
                         </div>
                         <div class="input-field col s12">
@@ -43,7 +39,7 @@
                             <label for="email">E-mail</label>
                         </div>
                         <div class="input-field col s12">
-                            <input disabled id="nickname" type="text" class="validate" value ="eclairjones">
+                            <input disabled id="nickname" type="text" class="validate" value ="{{ user.apelido }}">
                             <label for="nickname">Apelido</label>
                         </div>
                     </div>

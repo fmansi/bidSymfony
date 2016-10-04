@@ -118,13 +118,7 @@ class UsuarioController extends Controller
             ->add('estado', EntityType::class, array(
                 // query choices from this entity
                 'class' => 'AppBundle\Entity\Estado',
-
-                // use the User.username property as the visible option string
-                'choice_label' => 'nome',
-
-                // used to render a select box, check boxes or radios
-                // 'multiple' => true,
-                // 'expanded' => true,
+                'choice_label' => 'nome'
             ))
             ->add('cpf', TextType::class,array(
                 'attr' => array('id' => 'cpf')
