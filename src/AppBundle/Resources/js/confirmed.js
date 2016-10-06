@@ -26,11 +26,11 @@ $(document).ready(function(){
 
 
     $('#form_telefoneRes').formatter({
-        'pattern': '+55 ({{999}}) {{9999}}-{{9999}}',
+        'pattern': '+55 ({{99}}) {{9999}}-{{9999}}',
         'persistent': true
     });
     $('#form_telefoneCel').formatter({
-        'pattern': '+55 ({{999}}) {{99999}}-{{9999}}',
+        'pattern': '+55 ({{99}}) {{99999}}-{{9999}}',
         'persistent': true
     });
 
