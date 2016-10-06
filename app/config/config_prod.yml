@@ -1,9 +1,5 @@
 imports:
-    - { resource: parameters.yml }
-    - { resource: security.yml }
-    - { resource: services.yml }
-    - { resource: "@LeilaoBundle/Resources/config/services.yml" }
-    - { resource: "@AdminBundle/Resources/config/services.yml" }
+    - { resource: config.yml }
 
 doctrine:
     orm:
