@@ -25,8 +25,8 @@
                 <div class="input-field center">
                     {{ form_start(form, { 'action': path('AppBundleUsuarioAlterarSenha'), 'attr': { 'class': 'fos_user_change_password' } }) }}
                     {{ form_widget(form) }}
-                    <div>
-                        <input type="submit" value="Alterar senha" />
+                    <div style="clear:both">
+                        <input class="btn waves-effect waves-light red darken-3" type="submit" value="Alterar senha" />
                     </div>
                     {{ form_end(form) }}
                 </div>
