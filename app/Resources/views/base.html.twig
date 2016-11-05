@@ -66,7 +66,7 @@
                     </a></li>
                 <li><a href="#">Olá {{ app.user.username }}</a></li>
             {% else %}
-                <li><a href="{{ path('fos_user_security_login') }}">Cadastro</a></li>
+                <li><a href="{{ path('fos_user_registration_register') }}">Cadastro</a></li>
                 <li><a href="{{ path('fos_user_security_login') }}">{{ 'Entrar'|trans({}, 'FOSUserBundle') }}</a></li>
                 <li><a href="#">06 de Abr 2016 18:52:22</a></li>
             {% endif %}

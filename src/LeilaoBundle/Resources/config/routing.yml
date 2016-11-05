@@ -1,3 +1,7 @@
 LeilaoBundle:
     path:      /leilao/{situation}
     defaults:  { _controller: LeilaoBundle:Leilao:index, situation:open }
+
+darLanceLeilaoBundle:
+    path:      /darLance/{leilaoId}
+    defaults:  { _controller: LeilaoBundle:Leilao:darLance }

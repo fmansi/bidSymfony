@@ -54,7 +54,7 @@
                         <div class="card small">
                             <div class="card-image waves-effect waves-block waves-light">
                                 <div class="materialboxed">
-                                    <img width="250" src="img/rio.jpg">
+                                    <img width="250" src="http://192.168.255.128/bidTravel/web/img/rio.jpg">
                                     <figcaption>Voos para Rio de Janeiro</figcaption>
                                 </div>
                             </div>
@@ -87,18 +87,22 @@
                             <div class="col s12">
                                 <ul class="collapsible">
                                     <li class="active">
-                                        <div class="collapsible-header grey-text grey lighten-2 center">Usuário: edinnap</div>
+                                        <div class="collapsible-header grey-text grey lighten-2 center">
+                                            {% if passagem.leilao.usuario %}
+                                                Usuário: {{ passagem.leilao.usuario.apelido|upper }}
+                                            {% else %}
+                                                Dê seu lance agora!!
+                                            {% endif %}
+                                        </div>
                                     </li>
                                     <li>
                                         <div class="collapsible-header center">
-                                            <p class="leilao-home-txt-1"> {% if passagem.leilao.tempoleilao is not null %}
+                                            <p class="leilao-home-txt-1">
+                                                {% if passagem.leilao.leilaoEstaAberto %}
                                                     {{ passagem.leilao.tempoleilao }}
-
-                                                    <a href=""><input type="button" value="Dê Seu lançe"/> </a>
                                                 {% else %}
-                                                    <b>Leilão terminado</b>
-                                                {% endif %} </p>
-                                            <p class="leilao-home-txt-2">Início: 20/07/2016 - 02:30:00</p>
+                                                    Aproveite!!
+                                                {% endif %}
                                         </div>
                                     </li>
                                 </ul>
@@ -106,7 +110,11 @@
                                     <span class="grey-text"> Dê seu lance </span>
                                 </div>
                                 <div class="col s6">
-                                    <a class="waves-effect red btn">Lance</a>
+                                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                        <a href="{{ path('darLanceLeilaoBundle', {'leilaoId':passagem.leilao.id}) }}" class="waves-effect red btn">Lance</a>
+                                    {% else %}
+                                        <a href="{{ path('fos_user_security_login') }}" class="waves-effect red btn">Logar</a>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
@@ -115,16 +123,9 @@
                         <div class="card small">
                             <div class="col s12 grey lighten-2 center"><h5 class="grey-text">ÚLTIMOS LANCES</h5></div>
                             <div class="card-content grey-text lighten-2 center">
-                                <p> R$ 100,80 - edinnap <p>
-                                <p> R$ 99,80 - edinnap <p>
-                                <p> R$ 98,80 - edinnap <p>
-                                <p> R$ 97,80 - edinnap <p>
-                                <p> R$ 96,80 - edinnap <p>
-                                <p> R$ 50,80 - edinnap <p>
-                                <p> R$ 40,80 - edinnap <p>
-                                <p> R$ 35,80 - edinnap <p>
-                                <p> R$ 20,80 - edinnap <p>
-                                <p> R$ 2,80 - edinnap <p>
+                                {% for lance in passagem.leilao.getLancesByLimit(10) %}
+                                <p>{{  lance.id }} R$ 100,80 - {{ lance.usuario.apelido|upper }} <p>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
@@ -138,7 +139,7 @@
                         <div class="card">
                             <div class="card-image waves-effect waves-block waves-light">
                                 <div class="materialboxed">
-                                    <img width="250" src="img/rio.jpg">
+                                    <img width="250" src="http://192.168.255.128/bidTravel/web/img/rio.jpg">
                                     <figcaption>Voos para Rio de Janeiro</figcaption>
                                 </div>
                             </div>
@@ -313,8 +314,9 @@
         '@AppBundle/Resources/js/jquery-2.1.1.min.js'
         '@AppBundle/Resources/js/materialize.js'
         '@AppBundle/Resources/js/init.js'
+        '@AppBundle/Resources/js/jquery.formatter.min.js'
         '@AppBundle/Resources/js/swiper.min.js'
-        '@AppBundle/Resources/js/home.js' %}
+        '@AppBundle/Resources/js/confirmed.js'%}
         <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
     {% endblock %}

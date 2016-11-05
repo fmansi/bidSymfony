@@ -61,6 +61,13 @@ class Usuario Extends BaseUser
     private $sexo;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="saldoLances", type="integer", nullable=true)
+     */
+    protected $saldoLances;
+
+    /**
      * @return UsuarioDadosCadastro
      */
     public function getDadosCadastro()
@@ -138,6 +145,22 @@ class Usuario Extends BaseUser
     public function setSexo($sexo)
     {
         $this->sexo = $sexo;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSaldoLances()
+    {
+        return $this->saldoLances;
+    }
+
+    /**
+     * @param int $saldoLances
+     */
+    public function setSaldoLances($saldoLances)
+    {
+        $this->saldoLances = $saldoLances;
     }
 }
 

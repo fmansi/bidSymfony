@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Criteria;
 
 /**
  * Leilao
@@ -23,28 +25,60 @@ class Leilao
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="dataInicio", type="datetime", nullable=true)
      */
-    private $datainicio;
+    protected $datainicio;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="tempoLeilao", type="datetime", nullable=true)
      */
-    private $tempoleilao;
+    protected $tempoleilao;
 
     /**
      * @var string
      *
      * @ORM\Column(name="situacao", type="string", length=45, nullable=true)
      */
-    private $situacao;
+    protected $situacao;
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection $lances
+     *
+     * @ORM\OneToMany(targetEntity="LeilaoLances", mappedBy="leilao")
+     */
+    protected $lances;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="qtdMinimaLances", type="integer", nullable=false)
+     */
+    protected $qtdMinimaLances;
+
+    /**
+     * @var \Usuario
+     *
+     * @ORM\ManyToOne(targetEntity="Usuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="usuario_id", referencedColumnName="idusuario", nullable=true)
+     * })
+     */
+    protected $usuario;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->lances   = new ArrayCollection();
+    }
 
     /**
      * @return int
@@ -117,6 +151,80 @@ class Leilao
     public function setSituacao($situacao)
     {
         $this->situacao = $situacao;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getLances()
+    {
+        return $this->lances;
+    }
+
+    public function getLancesByLimit($limit)
+    {
+        $criteria = Criteria::create()
+            ->orderBy(array('id'=> \Doctrine\Common\Collections\Criteria::DESC))
+            ->setMaxResults($limit);
+
+        if ($this->getLances()) {
+            return $this->getLances()->matching($criteria);
+        } else {
+            return false;
+        }
+
+    }
+
+    /**
+     * @param ArrayCollection $lances
+     */
+    public function setLances($lances)
+    {
+        $this->lances = $lances;
+    }
+
+    public function leilaoEstaAberto()
+    {
+        $limitLances = $this->qtdMinimaLances;
+        $totalLances = count($this->getLances());
+
+        if ($limitLances < $totalLances) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * @return int
+     */
+    public function getQtdMinimaLances()
+    {
+        return $this->qtdMinimaLances;
+    }
+
+    /**
+     * @param int $qtdMinimaLances
+     */
+    public function setQtdMinimaLances($qtdMinimaLances)
+    {
+        $this->qtdMinimaLances = $qtdMinimaLances;
+    }
+
+    /**
+     * @return \Usuario
+     */
+    public function getUsuario()
+    {
+        return $this->usuario;
+    }
+
+    /**
+     * @param \Usuario $usuario
+     */
+    public function setUsuario(Usuario $usuario)
+    {
+        $this->usuario = $usuario;
     }
 }
 
