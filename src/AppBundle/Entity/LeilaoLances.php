@@ -48,6 +48,11 @@ class LeilaoLances
      */
     protected $usuario;
 
+    /**
+     * @ORM\Column(name="valor", type="float", scale=2)
+     */
+    protected $valor;
+
     public function __construct()
     {
         $this->data = new \DateTime();
@@ -116,6 +121,22 @@ class LeilaoLances
     public function setUsuario($usuario)
     {
         $this->usuario = $usuario;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getValor()
+    {
+        return number_format($this->valor, 2, ',', '.');
+    }
+
+    /**
+     * @param $valor
+     */
+    public function setValor($valor)
+    {
+        $this->valor = $valor;
     }
 }
 

@@ -73,6 +73,11 @@ class Leilao
     protected $usuario;
 
     /**
+     * @ORM\Column(name="valor_atual", type="float", scale=2)
+     */
+    protected $valor_atual;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -123,7 +128,7 @@ class Leilao
         $diferenca = $data_inicial->diff($data_final);
 
         if (!$diferenca->invert) {
-            return $diferenca->format('%H:%I:%S');
+            return $diferenca->format('%Hh%Im%Ss');
         } else {
             return null;
         }
@@ -225,6 +230,22 @@ class Leilao
     public function setUsuario(Usuario $usuario)
     {
         $this->usuario = $usuario;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getValorAtual()
+    {
+        return number_format($this->valor_atual, 2, ',', '.');
+    }
+
+    /**
+     * @param mixed $valor_atual
+     */
+    public function setValorAtual($valor_atual)
+    {
+        $this->valor_atual = $valor_atual;
     }
 }
 

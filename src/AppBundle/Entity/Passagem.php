@@ -86,6 +86,11 @@ class Passagem
     private $leilao;
 
     /**
+     * @ORM\Column(name="valor", type="float", scale=2)
+     */
+    protected $valor;
+
+    /**
      * @return int
      */
     public function getId()
@@ -211,6 +216,22 @@ class Passagem
     public function setLeilao(Leilao $leilao)
     {
         $this->leilao = $leilao;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getValor()
+    {
+        return number_format($this->valor, 2, ',', '.');
+    }
+
+    /**
+     * @param mixed $valor
+     */
+    public function setValor($valor)
+    {
+        $this->valor = $valor;
     }
 }
 

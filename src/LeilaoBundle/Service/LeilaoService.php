@@ -19,6 +19,7 @@ class LeilaoService
      * @var Doctrine\ORM\EntityManager
      */
     private $em;
+
     /**
      * Construtor Service Container
      */
